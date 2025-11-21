@@ -1,4 +1,3 @@
-
 /**
  * GA4 Carousel Tracking
  * Tracks carousel interactions using existing selectors
@@ -258,6 +257,11 @@
             const dwellMs = Date.now() - carouselState.slideStartTime;
             trackDwellEnd(carouselState.currentSlide, dwellMs);
         }
+        
+        // Only track completion if carousel was actually started
+        if (carouselState.isStarted) {
+            trackCarouselComplete();
+        }
     }
     
     // Initialize when DOM is ready
@@ -536,6 +540,11 @@
             const dwellMs = Date.now() - carouselState.slideStartTime;
             trackDwellEnd(carouselState.currentSlide, dwellMs);
         }
+        
+        // Only track completion if carousel was actually started
+        if (carouselState.isStarted) {
+            trackCarouselComplete();
+        }
     }
     
     // Initialize when DOM is ready
@@ -556,6 +565,16 @@
     };
     
 })();
+
+
+
+
+
+
+
+
+
+
 
 
 
